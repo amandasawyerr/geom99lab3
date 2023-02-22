@@ -1,4 +1,4 @@
-//Tutorial from Style a feature layer by esri
+<!--Tutorial from Style a feature layer by esri-->
 <html>
 <head>
   <meta name="description" content="DevLab: Style a feature layer">
@@ -50,13 +50,13 @@
         container: "viewDiv",
         map: map,
         center: [-96, 63], //Longitude, latitude
-        zoom: 3
+        zoom: 4
       });
       
       // Define a pop-up for provinces
       const popProv = {
         "title": "Province",
-        "content": "<b>Province Name:</b> {Name}"
+        "content": "<b>Province Name:</b> {PRENAME}"
       }
 
       // symbols for provinces unique symbols
@@ -76,26 +76,26 @@
       }  
       const openProvRenderer = {
         type: "unique-value",
-        field: "Name",
+        field: "PRENAME",
         uniqueValueInfos: [
-          createFillSymbol("Alberta", "#e60049"),
-          createFillSymbol("British Columbia", "#0bb4ff"),
-          createFillSymbol("Manitoba", "#e950b2"),
-          createFillSymbol("New Brunswick", "#f5db69"),
+          createFillSymbol("Alberta", "#F0E68C"),
+          createFillSymbol("British Columbia", "#4B0082"),
+          createFillSymbol("Manitoba", "#F08080"),
+          createFillSymbol("New Brunswick", "#FFB6C1"),
           createFillSymbol("Newfoundland and Labrador", "#ac52eb"),
-          createFillSymbol("Northwest Territories", "#ffa300"),
-          createFillSymbol("Nova Scotia", "#dc0ab4"),
-          createFillSymbol("Ontario", "#00bfa0"),
-          createFillSymbol("Nunavut", "#0a8a2c"),
-          createFillSymbol("Prince Edward Island", "#2e2ff2"),
-          createFillSymbol("Quebec", "#e60049"),
-          createFillSymbol("Saskatchewan", "#5a0bff"),
-          createFillSymbol("Yukon", "#50e991")
+          createFillSymbol("Northwest Territories", "#20B2AA"),
+          createFillSymbol("Nova Scotia", "#32CD32"),
+          createFillSymbol("Ontario", "#0000CD"),
+          createFillSymbol("Nunavut", "#808000"),
+          createFillSymbol("Prince Edward Island", "#4169E1"),
+          createFillSymbol("Quebec", "#A0522D"),
+          createFillSymbol("Saskatchewan", "#FFF5EE"),
+          createFillSymbol("Yukon", "#9ACD32")
         ]
       };
     const Prov = new FeatureLayer({
         url: "https://utility.arcgis.com/usrsvcs/servers/b182259692e545748f10088934c8ba89/rest/services/geom99wed/amsawyerCanada2/MapServer/0",
-        outFields: ["Name"],
+        outFields: ["PRENAME"],
         popupTemplate: popProv,
         renderer: openProvRenderer,
         opacity: 20
