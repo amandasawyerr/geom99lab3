@@ -38,6 +38,15 @@
         center: [-118.80543,34.03000], //Longitude, latitude
         zoom: 13
       });
+      
+      //Adding feature layer 
+      const MyLayer = new FeatureLayer({
+      url: "https://luna.flemingcollege.ca/arcgis/rest/services/geom99wed/amsawyerCanada2/MapServer/0"
+      });
+
+      map.add(MyLayer);
+
+      });
 
       // Add sketch widget
       const graphicsLayerSketch = new GraphicsLayer();
