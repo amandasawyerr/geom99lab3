@@ -39,14 +39,6 @@
         zoom: 8
       });
       
-      //Adding feature layer 
-      const MyLayer = new FeatureLayer({
-      url: "https://utility.arcgis.com/usrsvcs/servers/b182259692e545748f10088934c8ba89/rest/services/geom99wed/amsawyerCanada2/MapServer/0"
-      });
-
-      map.add(MyLayer);
-
-      });
 
       // Add sketch widget
       const graphicsLayerSketch = new GraphicsLayer();
@@ -87,7 +79,7 @@
         const parcelQuery = {
          spatialRelationship: "intersects", // Relationship operation to apply
          geometry: geometry,  // The sketch feature geometry
-         outFields: ["APN","UseType","TaxRateCity","Roll_LandValue"], // Attributes to return
+         outFields: ["Name"], // Attributes to return
          returnGeometry: true
         };
 
@@ -118,7 +110,7 @@
 
         const popupTemplate = {
           title: "Parcel {APN}",
-          content: "Type: {UseType} <br> Land value: {Roll_LandValue} <br> Tax Rate City: {TaxRateCity}"
+          content: "Province Name: {Name}"
         };
 
         // Set symbol and popup
